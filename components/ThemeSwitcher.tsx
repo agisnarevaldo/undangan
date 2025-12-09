@@ -6,33 +6,39 @@ type Theme = 'light' | 'dark' | 'auto'
 
 export default function ThemeSwitcher() {
     const [theme, setTheme] = useState<Theme>('auto')
-    const [showButton, setShowButton] = useState(false)
 
     useEffect(() => {
         // Load theme from localStorage
         const savedTheme = (localStorage.getItem('theme') as Theme) || 'auto'
         setTheme(savedTheme)
         applyTheme(savedTheme)
-
-        // Show button after invitation is opened
-        const handleOpen = () => {
-            setShowButton(true)
-        }
-
-        document.addEventListener('undangan.open', handleOpen)
-        return () => document.removeEventListener('undangan.open', handleOpen)
     }, [])
 
+    useEffect(() => {
+        // Listen to system theme changes for auto mode
+        if (theme === 'auto') {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+            const handleChange = () => applyTheme('auto')
+
+            mediaQuery.addEventListener('change', handleChange)
+            return () => mediaQuery.removeEventListener('change', handleChange)
+        }
+    }, [theme])
+
     const applyTheme = (newTheme: Theme) => {
-        const root = document.documentElement
+        const html = document.documentElement
 
         if (newTheme === 'auto') {
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-            root.classList.toggle('dark', prefersDark)
-            root.setAttribute('data-bs-theme', prefersDark ? 'dark' : 'light')
+            if (prefersDark) {
+                html.classList.add('dark')
+            } else {
+                html.classList.remove('dark')
+            }
+        } else if (newTheme === 'dark') {
+            html.classList.add('dark')
         } else {
-            root.classList.toggle('dark', newTheme === 'dark')
-            root.setAttribute('data-bs-theme', newTheme)
+            html.classList.remove('dark')
         }
     }
 
@@ -46,16 +52,14 @@ export default function ThemeSwitcher() {
         localStorage.setItem('theme', nextTheme)
     }
 
-    if (!showButton) return null
-
     return (
         <button
             type="button"
             id="button-theme"
             onClick={cycleTheme}
-            className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-full shadow-sm mt-3 p-2 w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+            className="btn btn-transparent border border-gray-300 dark:border-gray-600 rounded-full shadow-sm mt-3 w-10 h-10"
             aria-label="Change theme"
-            title={`Current: ${theme}`}
+            title={`Theme: ${theme}`}
         >
             <i className="fa-solid fa-circle-half-stroke"></i>
         </button>

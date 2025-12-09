@@ -93,10 +93,10 @@ export default function GuestPage() {
           </div>
         </div>
 
-        <div className="sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 m-0 p-0 overflow-y-auto ">
+        <div className="sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 m-0 p-0 overflow-y-auto pb-20">
           <main>
             <HeroSection countdown={countdown} />
-            <SvgDivider variant="1" className='rotate-180' />
+            <SvgDivider variant="1" />
             <BrideSection />
             <SvgDivider variant="2" />
             <QuranSection />
@@ -113,11 +113,11 @@ export default function GuestPage() {
             <SvgDivider variant="6" />
 
             <section className="bg-white dark:bg-gray-900">
-              <div className="mx-auto px-4 text-center">
+              <div className="mx-auto px-4 text-center h-full pb-12">
                 <p className="pb-2 pt-4 text-[0.95rem] text-gray-700 dark:text-gray-300">Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.</p>
                 <h2 className="font-esthetic text-2xl text-gray-900 dark:text-gray-100">Wassalamualaikum Warahmatullahi Wabarakatuh</h2>
                 <h2 className="font-arabic pt-4 text-2xl text-gray-900 dark:text-gray-100">اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ</h2>
-                <hr className="my-3 border-gray-300 dark:border-gray-700" />
+                <hr className="my-3 border border-gray-300 dark:border-gray-700" />
               </div>
             </section>
           </main>
@@ -154,7 +154,6 @@ export default function GuestPage() {
         }}
       />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4=" crossOrigin="anonymous" />
     </>
   )
 }

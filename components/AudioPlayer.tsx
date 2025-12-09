@@ -129,7 +129,7 @@ export default function AudioPlayer({ autoPlay = false }: AudioPlayerProps) {
                 type="button"
                 id="button-music"
                 onClick={toggleAudio}
-                className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-full shadow-sm mt-3 p-2 w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                className="btn btn-transparent border border-gray-300 dark:border-gray-600 rounded-full shadow-sm mt-3 w-10 h-10"
                 aria-label="Toggle music"
             >
                 {isPlaying ? (

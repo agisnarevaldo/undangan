@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* Theme Color Variables */
 @layer base {
+  :root {
+    --color-bg-light: 248 249 250;
+    /* #f8f9fa */
+    --color-bg-white: 255 255 255;
+    /* #ffffff */
+    --color-text-dark: 33 37 41;
+    /* #212529 */
+  }
+
+  .dark {
+    --color-bg-dark: 33 37 41;
+    /* #212529 */
+    --color-bg-black: 0 0 0;
+    /* #000000 */
+    --color-text-light: 248 249 250;
+    /* #f8f9fa */
+  }
+
   html {
     scroll-behavior: smooth !important;
     width: 100vw !important;
@@ -35,7 +53,60 @@
   }
 }
 
+/* Bootstrap-Compatible Utility Classes */
+@layer components {
+
+  /* Background utilities */
+  .bg-light-dark {
+    @apply bg-[rgb(var(--color-bg-light))] dark:bg-[rgb(var(--color-bg-dark))];
+  }
+
+  .bg-white-black {
+    @apply bg-[rgb(var(--color-bg-white))] dark:bg-[rgb(var(--color-bg-black))];
+  }
+
+  .bg-theme-auto {
+    @apply bg-light-bg dark:bg-dark-bg;
+  }
+
+  /* Text utilities */
+  .text-theme-auto {
+    @apply text-[rgb(var(--color-text-dark))] dark:text-[rgb(var(--color-text-light))];
+  }
+
+  /* Button utilities */
+  .btn {
+    @apply inline-flex items-center justify-center transition-colors duration-200;
+  }
+
+  .btn-sm {
+    @apply text-sm px-3 py-1.5;
+  }
+
+  .btn-transparent {
+    @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-[0.5rem];
+  }
+
+  .btn-outline-auto {
+    @apply border border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 hover:bg-gray-900 hover:text-gray-100 dark:hover:bg-gray-100 dark:hover:text-gray-900;
+  }
+
+  /* SVG theme colors */
+  .color-theme-svg {
+    @apply text-white dark:text-black bg-light-bg dark:bg-dark-bg;
+  }
+
+  /* Navbar theme */
+  .navbar {
+    @apply bg-white/75 dark:bg-gray-900/75 backdrop-blur-[0.5rem];
+  }
+}
+
 /* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -49,6 +120,14 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(192, 192, 192, 1);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 1);
 }
 
 /* Hide scrollbar on mobile */
@@ -215,10 +294,15 @@
   transform: scale(1.15);
 }
 
-/* Bootstrap carousel */
+/* Bootstrap carousel - Dark mode support */
 .carousel-control-prev,
 .carousel-control-next {
   width: 10%;
+}
+
+.dark .carousel-control-prev-icon,
+.dark .carousel-control-next-icon {
+  filter: invert(1);
 }
 
 .carousel-indicators {
@@ -229,6 +313,14 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+.dark .carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .carousel-indicators .active {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Bootstrap collapse */

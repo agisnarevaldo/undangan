@@ -2,7 +2,7 @@
 
 export default function BrideSection() {
     return (
-        <section className="bg-white dark:bg-gray-900 text-center py-8" id="bride">
+        <section className="bg-white dark:bg-black text-center py-8" id="bride">
             <h2 className="font-arabic py-4 m-0 text-2xl text-gray-900 dark:text-gray-100">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
             <h2 className="font-esthetic py-4 m-0 text-2xl text-gray-900 dark:text-gray-100">Assalamualaikum Warahmatullahi Wabarakatuh</h2>
             <p className="pb-4 px-2 m-0 text-[0.95rem] text-gray-700 dark:text-gray-300">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami:</p>

@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#ffffff',
+  colorScheme: 'dark light',
 }
 
 export const metadata: Metadata = {
@@ -44,10 +47,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" data-bs-theme="auto" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head>
         {/* Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -63,8 +65,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="overflow-x-hidden">
+      <body className="overflow-x-hidden bg-white dark:bg-black text-gray-900 dark:text-gray-100">
         {children}
+
+        {/* Bootstrap JS for carousel/collapse only */}
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc="
+          crossOrigin="anonymous"
+          async
+        />
       </body>
     </html>
   )

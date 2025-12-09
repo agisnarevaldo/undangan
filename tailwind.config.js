@@ -17,6 +17,17 @@ module.exports = {
                 'stat-present': '#7A5CD9',
                 'stat-absent': '#6546B1',
                 'stat-likes': '#4F3392',
+                // Light mode colors
+                'light-bg': '#f8f9fa',
+                'light-surface': '#ffffff',
+                'light-text': '#212529',
+                // Dark mode colors
+                'dark-bg': '#212529',
+                'dark-surface': '#000000',
+                'dark-text': '#f8f9fa',
+            },
+            backdropBlur: {
+                'theme': '0.5rem',
             },
             animation: {
                 'scroll': 'scroll 3s linear infinite',
