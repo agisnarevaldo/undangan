@@ -1,5 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
+}
 
 export const metadata: Metadata = {
   title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
@@ -27,7 +31,6 @@ export const metadata: Metadata = {
     icon: '/assets/images/icon-192x192.png',
     apple: '/assets/images/icon-192x192.png',
   },
-  themeColor: '#000000',
   appleWebApp: {
     capable: true,
     title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',

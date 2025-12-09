@@ -2,23 +2,100 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-export default function AudioPlayer() {
-    const [isPlaying, setIsPlaying] = useState(false)
-    const [isLoaded, setIsLoaded] = useState(false)
-    const audioRef = useRef<HTMLAudioElement | null>(null)
+interface AudioPlayerProps {
+    autoPlay?: boolean
+}
 
+export default function AudioPlayer({ autoPlay = false }: AudioPlayerProps) {
+    const [isPlaying, setIsPlaying] = useState(false)
+    const audioRef = useRef<HTMLAudioElement | null>(null)
+    const hasAutoPlayed = useRef(false)
+
+    // Auto-play when autoPlay prop becomes true
     useEffect(() => {
-        // Load audio after invitation is opened
-        const handleOpen = () => {
-            if (audioRef.current && !isLoaded) {
-                audioRef.current.load()
-                setIsLoaded(true)
+        if (autoPlay && audioRef.current && !hasAutoPlayed.current) {
+            hasAutoPlayed.current = true
+            console.log('🎵 Auto-play triggered from prop')
+
+            const audio = audioRef.current
+
+            const attemptPlay = async () => {
+                try {
+                    console.log('🎵 Attempting to play audio...')
+                    console.log('📊 Current state - readyState:', audio.readyState, 'networkState:', audio.networkState)
+
+                    // Set volume and mute first
+                    audio.volume = 0.5
+                    audio.muted = true
+
+                    console.log('▶️ Calling audio.play()...')
+                    // Try to play
+                    await audio.play()
+                    console.log('✅ Music started (muted), unmuting...')
+
+                    // Unmute after successful play
+                    setTimeout(() => {
+                        audio.muted = false
+                        setIsPlaying(true)
+                        console.log('✅ Music playing successfully 🎵')
+                    }, 100)
+                } catch (error: any) {
+                    console.warn('❌ Auto-play failed:', error.message)
+                    console.warn('📊 Error details:', error)
+                    console.warn('💡 Silakan klik tombol musik untuk memutar manual')
+                    audio.muted = false
+                    setIsPlaying(false)
+                    hasAutoPlayed.current = false
+                }
+            }
+
+            // Event listeners for monitoring
+            const handleCanPlay = () => {
+                console.log('✅ Audio canplay event fired')
+            }
+
+            const handleLoadedData = () => {
+                console.log('✅ Audio loadeddata event fired')
+            }
+
+            const handleError = (e: Event) => {
+                const error = audio.error
+                if (error) {
+                    console.error('❌ Audio loading error:')
+                    console.error('  - Error code:', error.code)
+                    console.error('  - Error message:', error.message)
+                }
+                hasAutoPlayed.current = false
+            }
+
+            // Add event listeners for monitoring
+            audio.addEventListener('canplay', handleCanPlay)
+            audio.addEventListener('loadeddata', handleLoadedData)
+            audio.addEventListener('error', handleError)
+
+            // Try to load
+            try {
+                audio.load()
+                console.log('🔄 Audio load() called')
+
+                // Try to play immediately (don't wait for load to complete)
+                console.log('⏱️ Scheduling play attempt in 300ms...')
+                setTimeout(() => {
+                    console.log('⏱️ Timeout fired, calling attemptPlay()')
+                    attemptPlay()
+                }, 300)
+            } catch (err) {
+                console.error('❌ Error calling audio.load():', err)
+            }
+
+            return () => {
+                console.log('🧹 Cleanup AudioPlayer effect')
+                audio.removeEventListener('canplay', handleCanPlay)
+                audio.removeEventListener('loadeddata', handleLoadedData)
+                audio.removeEventListener('error', handleError)
             }
         }
-
-        document.addEventListener('undangan.open', handleOpen)
-        return () => document.removeEventListener('undangan.open', handleOpen)
-    }, [isLoaded])
+    }, [autoPlay])
 
     const toggleAudio = async () => {
         if (!audioRef.current) return
@@ -39,8 +116,12 @@ export default function AudioPlayer() {
 
     return (
         <>
-            <audio ref={audioRef} loop preload="none">
-                <source src="/music/pure-love-304010.mp3" type="audio/mpeg" />
+            <audio
+                ref={audioRef}
+                loop
+                preload="auto"
+                src="/music/pure-love-304010.mp3"
+            >
                 Your browser does not support the audio element.
             </audio>
 
@@ -52,7 +133,7 @@ export default function AudioPlayer() {
                 aria-label="Toggle music"
             >
                 {isPlaying ? (
-                    <i className="fa-solid fa-circle-pause animate-spin"></i>
+                    <i className="fa-solid fa-circle-pause spin-button"></i>
                 ) : (
                     <i className="fa-solid fa-circle-play"></i>
                 )}
