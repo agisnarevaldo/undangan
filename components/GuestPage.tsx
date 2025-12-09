@@ -16,8 +16,8 @@ export default function GuestPage() {
       setGuestName(decodeURIComponent(name))
     }
 
-    // Countdown timer
-    const targetDate = new Date('2024-01-01 09:30:00').getTime()
+    // Countdown timer - wedding date: March 15, 2023, 09:30 AM
+    const targetDate = new Date('2023-03-15 09:30:00').getTime()
     
     const updateCountdown = () => {
       const now = Date.now()
