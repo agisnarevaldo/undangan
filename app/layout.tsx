@@ -1,13 +1,6 @@
 import type { Metadata } from 'next'
-import { Josefin_Sans } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
-
-const josefinSans = Josefin_Sans({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-josefin'
-})
 
 export const metadata: Metadata = {
   title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
@@ -51,6 +44,9 @@ export default function RootLayout({
   return (
     <html lang="id" data-bs-theme="auto" suppressHydrationWarning>
       <head>
+        {/* Google Fonts */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" />
+        
         {/* Preconnect to CDNs */}
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -75,7 +71,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={josefinSans.variable}>
+      <body>
         {children}
         
         {/* Bootstrap JS */}
