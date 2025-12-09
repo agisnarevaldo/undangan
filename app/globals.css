@@ -1,34 +1,81 @@
-/* Import existing CSS files */
-@import url('../css/common.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import existing animation CSS */
 @import url('../css/animation.css');
 
-/* Global styles for Next.js */
-:root {
-  --font-josefin: 'Josefin Sans', sans-serif;
+/* Global CSS variables */
+@layer base {
+  :root {
+    --font-josefin: 'Josefin Sans', sans-serif;
+    --font-arabic: 'Noto Naskh Arabic', serif;
+    --bg-light-dark: rgb(248, 249, 250);
+    --bg-white-black: rgb(255, 255, 255);
+  }
+
+  [data-bs-theme="dark"] {
+    --bg-light-dark: rgb(33, 37, 41);
+    --bg-white-black: rgb(0, 0, 0);
+  }
+
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    font-family: var(--font-josefin);
+  }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+/* Custom component styles */
+@layer components {
+  .font-esthetic {
+    font-family: var(--font-josefin);
+  }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
 
-body {
-  font-family: var(--font-josefin);
-}
+  .img-center-crop {
+    width: 13rem;
+    height: 13rem;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .bg-cover-home {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+  }
 
-/* Ensure compatibility with Bootstrap */
-.font-esthetic {
-  font-family: var(--font-josefin);
+  .btn-outline-auto {
+    @apply border border-current rounded-full px-3 py-1 text-sm shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors;
+  }
+
+  .loading-page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1056;
+  }
+
+  .with-scrollbar {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+  }
+
+  .with-scrollbar::-webkit-scrollbar {
+    display: block;
+  }
 }
