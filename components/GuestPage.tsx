@@ -315,6 +315,7 @@ export default function GuestPage() {
                     className="inline-block bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full mb-2 px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                   >
                     <i className="fa-solid fa-map-location-dot mr-2"></i>Lihat Google Maps
+                    <i className="fa-solid fa-map-location-dot mr-2"></i>Lihat Google Maps
                   </a>
                   <small className="block my-1 text-gray-600 dark:text-gray-400">RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.</small>
                 </div>
@@ -655,3 +656,4 @@ export default function GuestPage() {
     </>
   )
 }
+

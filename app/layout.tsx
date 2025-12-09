@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
@@ -46,6 +45,7 @@ export default function RootLayout({
       <head>
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Sacramento&family=Noto+Naskh+Arabic&display=swap"
@@ -60,7 +60,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         {children}
       </body>
     </html>

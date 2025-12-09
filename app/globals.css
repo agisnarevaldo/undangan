@@ -230,6 +230,7 @@ svg>path {
 .flex-grow-1 {
   flex: 1;
 }
+
 /* Animations */
 .animate-love {
   animation: love 5s ease-in-out infinite;
