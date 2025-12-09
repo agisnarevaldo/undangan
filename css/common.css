@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 html {
     scroll-behavior: smooth !important;
     width: 100vw !important;
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif !important;
+    font-family: "Sacramento", cursive;
     padding: 0 !important;
     width: 100% !important;
     overflow-x: hidden !important;

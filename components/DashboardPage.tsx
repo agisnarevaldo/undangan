@@ -17,18 +17,18 @@ export default function DashboardPage() {
 
   if (!isLoggedIn) {
     return (
-      <div className="d-flex justify-content-center align-items-center vh-100 bg-light-dark">
-        <div className="card shadow" style={{ maxWidth: '400px', width: '100%' }}>
-          <div className="card-body p-4">
+      <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-800">
+        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-0" style={{ maxWidth: '400px', width: '100%' }}>
+          <div className="p-4">
             <h4 className="text-center mb-4">Dashboard Login</h4>
             <form onSubmit={handleLogin}>
               <div className="mb-3">
-                <label htmlFor="loginEmail" className="form-label my-1">
+                <label htmlFor="loginEmail" className="block text-sm font-medium my-1">
                   <i className="fa-solid fa-envelope me-2"></i>Email
                 </label>
                 <input
                   type="email"
-                  className="form-control shadow-sm rounded-4"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   id="loginEmail"
                   placeholder="Enter your email"
                   value={email}
@@ -37,12 +37,12 @@ export default function DashboardPage() {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="loginPassword" className="form-label my-1">
+                <label htmlFor="loginPassword" className="block text-sm font-medium my-1">
                   <i className="fa-solid fa-lock me-2"></i>Password
                 </label>
                 <input
                   type="password"
-                  className="form-control shadow-sm rounded-4"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   id="loginPassword"
                   placeholder="Enter your password"
                   value={password}
@@ -50,8 +50,8 @@ export default function DashboardPage() {
                   required
                 />
               </div>
-              <div className="d-grid">
-                <button type="submit" className="btn btn-primary shadow-sm rounded-4">
+              <div className="w-full">
+                <button type="submit" className="w-full px-4 py-2 bg-blue-600 text-white rounded-3xl shadow-sm hover:bg-blue-700 transition-colors">
                   <i className="fa-solid fa-right-to-bracket me-2"></i>Login
                 </button>
               </div>
@@ -63,94 +63,87 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="container mt-4 mb-5">
+    <main className="container mx-auto mt-4 mb-5 px-4">
       {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mt-4 mb-5 pt-1">
-        <h4 className="m-0 p-0 flex-grow-1 fw-bold">
-          Undangan<i className="fa-solid fa-fire text-danger ms-2"></i>
+      <div className="flex justify-between items-center mt-4 mb-5 pt-1">
+        <h4 className="m-0 p-0 flex-grow-1 font-bold">
+          Undangan<i className="fa-solid fa-fire text-red-600 ms-2"></i>
         </h4>
-        <div className="m-0 p-0 flex-grow-1 text-end" style={{ fontSize: '1.4rem' }}>
+        <div className="m-0 p-0 flex-grow-1 text-right text-2xl">
           Dashboard
         </div>
       </div>
 
       {/* Stats */}
-      <div className="row">
-        <div className="col col-xl-3 col-6 mb-3">
-          <div className="rounded-4 shadow p-3 border-0" style={{ background: '#8573F1' }}>
-            <div className="row align-items-center" style={{ color: 'var(--bs-gray-100)' }}>
-              <div className="col-9">
-                <p className="fw-bold m-0 p-0">Comments</p>
-                <div className="fw-bold m-0 p-0">0</div>
-              </div>
-              <div className="col-3 p-0">
-                <i className="fa-solid fa-comments fa-2xl me-2"></i>
-              </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="rounded-3xl shadow p-3 border-0 bg-stat-comment">
+          <div className="flex items-center justify-between text-gray-100">
+            <div>
+              <p className="font-bold m-0 p-0">Comments</p>
+              <div className="font-bold m-0 p-0">0</div>
+            </div>
+            <div className="text-3xl">
+              <i className="fa-solid fa-comments"></i>
             </div>
           </div>
         </div>
-        <div className="col col-xl-3 col-6 mb-3">
-          <div className="rounded-4 shadow p-3 border-0" style={{ background: '#7A5CD9' }}>
-            <div className="row align-items-center" style={{ color: 'var(--bs-gray-100)' }}>
-              <div className="col-9">
-                <p className="fw-bold m-0 p-0">Present</p>
-                <div className="fw-bold m-0 p-0">0</div>
-              </div>
-              <div className="col-3 p-0">
-                <i className="fa-solid fa-circle-check fa-2xl me-2"></i>
-              </div>
+
+        <div className="rounded-3xl shadow p-3 border-0 bg-stat-present">
+          <div className="flex items-center justify-between text-gray-100">
+            <div>
+              <p className="font-bold m-0 p-0">Present</p>
+              <div className="font-bold m-0 p-0">0</div>
+            </div>
+            <div className="text-3xl">
+              <i className="fa-solid fa-circle-check"></i>
             </div>
           </div>
         </div>
-        <div className="col col-xl-3 col-6 mb-3">
-          <div className="rounded-4 shadow p-3 border-0" style={{ background: '#6546B1' }}>
-            <div className="row align-items-center" style={{ color: 'var(--bs-gray-100)' }}>
-              <div className="col-9">
-                <p className="fw-bold m-0 p-0">Absent</p>
-                <div className="fw-bold m-0 p-0">0</div>
-              </div>
-              <div className="col-3 p-0">
-                <i className="fa-solid fa-circle-xmark fa-2xl me-2"></i>
-              </div>
+
+        <div className="rounded-3xl shadow p-3 border-0 bg-stat-absent">
+          <div className="flex items-center justify-between text-gray-100">
+            <div>
+              <p className="font-bold m-0 p-0">Absent</p>
+              <div className="font-bold m-0 p-0">0</div>
+            </div>
+            <div className="text-3xl">
+              <i className="fa-solid fa-circle-xmark"></i>
             </div>
           </div>
         </div>
-        <div className="col col-xl-3 col-6 mb-3">
-          <div className="rounded-4 shadow p-3 border-0" style={{ background: '#4F3392' }}>
-            <div className="row align-items-center" style={{ color: 'var(--bs-gray-100)' }}>
-              <div className="col-9">
-                <p className="fw-bold m-0 p-0">Likes</p>
-                <div className="fw-bold m-0 p-0">0</div>
-              </div>
-              <div className="col-3 p-0">
-                <i className="fa-solid fa-heart fa-2xl me-2"></i>
-              </div>
+
+        <div className="rounded-3xl shadow p-3 border-0 bg-stat-likes">
+          <div className="flex items-center justify-between text-gray-100">
+            <div>
+              <p className="font-bold m-0 p-0">Likes</p>
+              <div className="font-bold m-0 p-0">0</div>
+            </div>
+            <div className="text-3xl">
+              <i className="fa-solid fa-heart"></i>
             </div>
           </div>
         </div>
       </div>
 
       {/* Info Card */}
-      <div className="row mt-4">
-        <div className="col-12">
-          <div className="bg-theme-auto p-4 rounded-4 shadow text-center">
-            <h5 className="mb-3">
-              <i className="fa-solid fa-info-circle me-2"></i>
-              Dashboard Information
-            </h5>
-            <p className="mb-0">
-              This is a simplified dashboard view for the Next.js migration.
-              Full dashboard functionality can be implemented by integrating with your backend API.
-            </p>
-          </div>
+      <div className="grid grid-cols-1 mt-4">
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-3xl shadow text-center border border-gray-200 dark:border-gray-700">
+          <h5 className="mb-3">
+            <i className="fa-solid fa-info-circle me-2"></i>
+            Dashboard Information
+          </h5>
+          <p className="mb-0">
+            This is a simplified dashboard view for the Next.js migration.
+            Full dashboard functionality can be implemented by integrating with your backend API.
+          </p>
         </div>
       </div>
 
       {/* Logout Button */}
-      <div className="row mt-4">
-        <div className="col-12 text-center">
+      <div className="grid grid-cols-1 mt-4">
+        <div className="text-center">
           <button
-            className="btn btn-danger rounded-4 shadow-sm"
+            className="px-6 py-2 bg-red-600 text-white rounded-3xl shadow-sm hover:bg-red-700 transition-colors"
             onClick={() => setIsLoggedIn(false)}
           >
             <i className="fa-solid fa-right-from-bracket me-2"></i>Logout
