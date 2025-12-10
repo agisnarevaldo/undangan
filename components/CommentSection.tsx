@@ -27,8 +27,8 @@ export default function CommentSection() {
                             className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
                             id="form-presence"
                         >
-                            <option value="1">Hadir</option>
-                            <option value="2">Tidak Hadir</option>
+                            <option value="1">✅ Datang</option>
+                            <option value="2">❌ Berhalangan</option>
                         </select>
                     </div>
 

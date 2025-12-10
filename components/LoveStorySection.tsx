@@ -4,7 +4,7 @@ export default function LoveStorySection() {
     return (
         <section className="bg-section pb-4" id="story">
             <div className="mx-auto px-4">
-                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-white dark:bg-gray-800">
+                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow-lg p-3 bg-white dark:bg-[#343a40]">
                     <h2 className="font-esthetic text-center py-2 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">Kisah Cinta</h2>
 
                     <div className="relative rounded-2xl mb-2 overflow-hidden">

@@ -31,7 +31,7 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
                 />
                 <h2 className="font-esthetic my-4 text-[2.25rem]">Wahyu &amp; Riski</h2>
                 <p className="my-2 text-xl text-gray-700 dark:text-gray-300">Rabu, 15 Maret 2023</p>
-                <button className="inline-block bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors my-3">
+                <button className="inline-block bg-white dark:bg-[#212529bf] backdrop-blur-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors my-3">
                     <i className="fa-solid fa-calendar-check mr-2"></i>Save Google Calendar
                 </button>
                 <div className="flex justify-center items-center mt-4 mb-2">

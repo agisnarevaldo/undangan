@@ -12,7 +12,11 @@ export default function GiftSection() {
                 <h2 className="font-esthetic pt-3 mb-4 text-[2.25rem] text-gray-900 dark:text-gray-100">Love Gift</h2>
                 <p className="mb-1 text-[0.95rem] text-gray-700 dark:text-gray-300">Dengan hormat, bagi Anda yang ingin memberikan tanda kasih kepada kami, dapat melalui:</p>
 
-                <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-3 mx-4 mt-4 text-start">
+                <div
+                    className="bg-[#f8f9fa] dark:bg-[#343a40] rounded-2xl shadow-lg p-3 mx-4 mt-4 text-start"
+                    data-aos="fade-up"
+                    data-aos-duration="2500"
+                >
                     <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
                     <p className="d-inline ms-2 text-gray-900 dark:text-gray-100">Transfer</p>
                     <div className="flex justify-between items-center mt-2">
@@ -28,7 +32,11 @@ export default function GiftSection() {
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-3 mx-4 mt-4 text-start">
+                <div
+                    className="bg-[#f8f9fa] dark:bg-[#343a40] rounded-2xl shadow-lg p-3 mx-4 mt-4 text-start"
+                    data-aos="fade-up"
+                    data-aos-duration="2500"
+                >
                     <i className="fa-solid fa-qrcode fa-lg"></i>
                     <p className="d-inline ms-2 text-gray-900 dark:text-gray-100">Qris</p>
                     <div className="flex justify-between items-center mt-2">
@@ -50,7 +58,11 @@ export default function GiftSection() {
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-3 mx-4 mt-4 text-start">
+                <div
+                    className="bg-[#f8f9fa] dark:bg-[#343a40] rounded-2xl shadow-lg p-3 mx-4 mt-4 text-start"
+                    data-aos="fade-up"
+                    data-aos-duration="2500"
+                >
                     <i className="fa-solid fa-gift fa-lg"></i>
                     <p className="d-inline ms-2 text-gray-900 dark:text-gray-100">Gift</p>
                     <div className="flex justify-between items-center mt-2">

@@ -4,11 +4,19 @@ export default function GallerySection() {
     return (
         <section className="bg-white dark:bg-black pb-5 pt-3" id="gallery">
             <div className="mx-auto px-4">
-                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-white dark:bg-gray-800">
+                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-section">
                     <h2 className="font-esthetic text-center py-2 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">Galeri</h2>
 
                     {/* Carousel 1 */}
-                    <div id="carousel-image-one" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="2000" suppressHydrationWarning>
+                    <div
+                        id="carousel-image-one"
+                        className="carousel slide mt-4"
+                        data-bs-ride="carousel"
+                        data-bs-interval="2000"
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        suppressHydrationWarning
+                    >
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -36,7 +44,15 @@ export default function GallerySection() {
                     </div>
 
                     {/* Carousel 2 */}
-                    <div id="carousel-image-two" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="5000" suppressHydrationWarning>
+                    <div
+                        id="carousel-image-two"
+                        className="carousel slide mt-4"
+                        data-bs-ride="carousel"
+                        data-bs-interval="5000"
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        suppressHydrationWarning
+                    >
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="1" aria-label="Slide 2"></button>
