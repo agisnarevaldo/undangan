@@ -192,6 +192,24 @@ export default function CommentSection() {
       console.log("API Response:", { status: response.status, result });
 
       if (result.success) {
+        // Optimistic update - Add comment immediately to UI
+        const newComment: Comment = {
+          id: result.data?.id || `temp-${Date.now()}`,
+          name: formData.name,
+          comment: formData.comment,
+          presence: formData.presence,
+          group: formData.group,
+          avatar_url: formData.avatar_url,
+          likes: 0,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          ip_address: null,
+          isLiked: false,
+        };
+
+        // Add to top of comments list immediately
+        setComments((prev) => [newComment, ...prev]);
+
         // Reset form (preserve group)
         setFormData((prev) => ({
           ...prev,
@@ -213,8 +231,6 @@ export default function CommentSection() {
         // Invalidate cache to force fresh fetch
         storage.invalidateCache();
 
-        // Don't refetch - let realtime handle the new comment
-        //await fetchComments(1, true); // Removed to prevent duplicate
         setPage(1);
 
         // Show success toast
@@ -230,7 +246,7 @@ export default function CommentSection() {
             behavior: "smooth",
             block: "start",
           });
-        }, 500);
+        }, 100);
       } else {
         const errorMessages = result.errors || [
           result.error || "Gagal mengirim komentar",

@@ -95,7 +95,7 @@ export default function WeddingDateSection({
         </div>
         <div className="py-2">
           <a
-            href="https://maps.app.goo.gl/nwq593KvAniv6UjD9"
+            href="https://www.google.com/maps/place/-7.3834579,108.612462/@-7.3834579,108.612462,17z"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full mb-2 px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
