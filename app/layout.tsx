@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang="id" className="dark" suppressHydrationWarning>
       <head>
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,7 +76,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="overflow-x-hidden bg-white dark:bg-black text-gray-900 dark:text-gray-100">
+      <body
+        className="overflow-x-hidden bg-white dark:bg-black text-gray-900 dark:text-gray-100"
+        suppressHydrationWarning
+      >
         {children}
 
         {/* Bootstrap JS for carousel/collapse only */}
