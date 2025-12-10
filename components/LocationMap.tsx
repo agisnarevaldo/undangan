@@ -79,7 +79,7 @@ export default function LocationMap() {
 
               {/* Bottom Right: Tarang Baha */}
               <text x="320" y="560" textAnchor="middle">
-                Tarang Baha
+                Karang Baha
               </text>
 
               {/* Bottom Left: Margasari & LOKASI */}

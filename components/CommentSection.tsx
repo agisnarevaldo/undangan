@@ -25,6 +25,9 @@ export default function CommentSection() {
   const [errors, setErrors] = useState<string[]>([]);
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  const [totalCount, setTotalCount] = useState(0); // Total comments in DB
+  const [showToast, setShowToast] = useState(false); // Success toast
+  const [likingIds, setLikingIds] = useState<Set<string>>(new Set()); // Prevent like spam
 
   // Fetch comments on mount
   useEffect(() => {
@@ -123,6 +126,7 @@ export default function CommentSection() {
         }
 
         setHasMore(pageNum < result.pagination.totalPages);
+        setTotalCount(result.pagination.total); // Set total count from API
       }
     } catch (error) {
       console.error("Failed to fetch comments:", error);
@@ -186,6 +190,13 @@ export default function CommentSection() {
         //await fetchComments(1, true); // Removed to prevent duplicate
         setPage(1);
 
+        // Show success toast
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
+
+        // Increment total count
+        setTotalCount((prev) => prev + 1);
+
         // Scroll to top where new comment will appear
         setTimeout(() => {
           document.getElementById("comments-list")?.scrollIntoView({
@@ -209,6 +220,12 @@ export default function CommentSection() {
   };
 
   const handleLike = async (commentId: string) => {
+    // Prevent spam - check if already liking
+    if (likingIds.has(commentId)) return;
+
+    // Add to liking set
+    setLikingIds((prev) => new Set(prev).add(commentId));
+
     // Optimistic update
     setComments((prev) =>
       prev.map((comment) =>
@@ -239,6 +256,13 @@ export default function CommentSection() {
       }
     } catch (error) {
       console.error("Failed to like comment:", error);
+    } finally {
+      // Remove from liking set
+      setLikingIds((prev) => {
+        const newSet = new Set(prev);
+        newSet.delete(commentId);
+        return newSet;
+      });
     }
   };
 
@@ -250,6 +274,14 @@ export default function CommentSection() {
 
   return (
     <section className="bg-section pb-2" id="comment">
+      {/* Success Toast */}
+      {showToast && (
+        <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 animate-in fade-in slide-in-from-top-5 duration-300">
+          <i className="fa-solid fa-check-circle text-xl"></i>
+          <span className="font-medium">Ucapan berhasil dikirim!</span>
+        </div>
+      )}
+
       <div className="mx-auto px-4">
         <div className="rounded-3xl shadow-xl p-6 bg-white/80 dark:bg-black/60 backdrop-blur-md border border-white/20 dark:border-gray-800">
           <h2 className="font-esthetic text-center py-2 m-0 text-4xl text-gray-900 dark:text-gray-100 mb-3">
@@ -260,7 +292,7 @@ export default function CommentSection() {
           <div className="mt-3">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               <i className="fa-solid fa-book-open mr-2"></i>
-              <span id="count-comment">{comments.length}</span> Ucapan
+              <span id="count-comment">{totalCount}</span> Ucapan
             </p>
 
             {loading && comments.length === 0 ? (
@@ -270,10 +302,14 @@ export default function CommentSection() {
                 ))}
               </div>
             ) : comments.length === 0 ? (
-              <div className="text-center py-8">
-                <i className="fa-regular fa-comment text-4xl text-gray-300 dark:text-gray-600"></i>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                  Belum ada ucapan
+              // Enhanced empty state
+              <div className="text-center py-12 px-4">
+                <i className="fa-regular fa-comments text-6xl text-gray-300 dark:text-gray-600 mb-4 block"></i>
+                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  Belum ada ucapan & doa
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Jadilah yang pertama memberikan ucapan! 💝
                 </p>
               </div>
             ) : (
