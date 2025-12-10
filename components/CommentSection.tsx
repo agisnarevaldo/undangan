@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { Comment, CommentFormData } from "@/types/comment";
 import { storage } from "@/lib/storage";
-import { formatRelativeTime } from "@/lib/utils";
+import { formatRelativeTime, getInitials } from "@/lib/utils";
 import PresenceSelector from "./PresenceSelector";
 import { AnimatedCheckIcon, AnimatedCrossIcon } from "./AnimatedIcons";
+import CommentSkeleton from "./CommentSkeleton";
 
 export default function CommentSection() {
   const [comments, setComments] = useState<Comment[]>([]);
@@ -17,12 +18,26 @@ export default function CommentSection() {
     name: "",
     presence: 1,
     comment: "",
+    group: "",
   });
   const [errors, setErrors] = useState<string[]>([]);
 
   // Fetch comments on mount
   useEffect(() => {
     fetchComments(1, true);
+
+    // Detect subdomain for group
+    if (typeof window !== "undefined") {
+      const hostname = window.location.hostname;
+      const parts = hostname.split(".");
+      if (parts.length > 2) {
+        // e.g., irkon.trypss.xyz -> irkon
+        // ignore 'www'
+        if (parts[0] !== "www") {
+          setFormData((prev) => ({ ...prev, group: parts[0] }));
+        }
+      }
+    }
   }, []);
 
   const fetchComments = async (pageNum: number, reset = false) => {
@@ -91,8 +106,13 @@ export default function CommentSection() {
       console.log("API Response:", { status: response.status, result });
 
       if (result.success) {
-        // Reset form
-        setFormData({ name: "", presence: 1, comment: "" });
+        // Reset form (preserve group)
+        setFormData((prev) => ({
+          ...prev,
+          name: "",
+          presence: 1,
+          comment: "",
+        }));
 
         // Invalidate cache to force fresh fetch
         storage.invalidateCache();
@@ -264,11 +284,10 @@ export default function CommentSection() {
             </p>
 
             {loading && comments.length === 0 ? (
-              <div className="text-center py-8">
-                <i className="fa-solid fa-spinner fa-spin text-2xl text-gray-400"></i>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                  Memuat ucapan...
-                </p>
+              <div className="space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <CommentSkeleton key={i} />
+                ))}
               </div>
             ) : comments.length === 0 ? (
               <div className="text-center py-8">
@@ -281,17 +300,23 @@ export default function CommentSection() {
               <>
                 <div
                   id="comments-list"
-                  className="space-y-3 max-h-96 overflow-y-auto"
+                  className="space-y-4 max-h-[500px] overflow-y-auto px-1"
                 >
-                  {comments.map((comment) => (
+                  {comments.map((comment, index) => (
                     <div
                       key={comment.id}
-                      className="shadow-lg rounded-2xl p-3 border border-gray-300 dark:border-gray-600"
+                      className="shadow-lg rounded-2xl p-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#212529] animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-backwards"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div className="flex-1">
-                          <h6 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-1 flex items-center gap-2">
+                          <h6 className="font-semibold text-sm text-gray-900 dark:text-gray-100 flex items-center gap-2 flex-wrap leading-tight">
                             {comment.name}
+                            {comment.group && (
+                              <span className="inline-flex items-center text-[10px] font-bold text-white bg-blue-600 px-1.5 py-0.5 rounded ml-1 uppercase">
+                                {comment.group}
+                              </span>
+                            )}
                             <span className="inline-flex items-center gap-1 text-xs font-normal text-gray-500 dark:text-gray-300  px-2 py-0.5 rounded-full">
                               {comment.presence === 1 ? (
                                 <>
@@ -306,7 +331,7 @@ export default function CommentSection() {
                               )}
                             </span>
                           </h6>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">
                             {formatRelativeTime(comment.created_at)}
                           </p>
                         </div>
@@ -329,7 +354,7 @@ export default function CommentSection() {
                           <span>{comment.likes}</span>
                         </button>
                       </div>
-                      <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
                         {comment.comment}
                       </p>
                     </div>

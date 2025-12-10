@@ -23,11 +23,12 @@ export default function LoveStorySection() {
                     💼 Awal Pertemuan Sederhana
                   </p>
                   <p className="text-sm mb-0 text-gray-700 dark:text-gray-300">
-                    Pada Januari 2025, Tryanda Anggita Suwito, seorang desainer
-                    grafis berusia 28 tahun, bertemu Putri Suciati, copywriter
-                    yang dikenal cerdas dan pendiam, dalam proyek branding
-                    perusahaan. Interaksi mereka di ruang rapat terbatas pada
-                    urusan kerja, penuh adab dan profesional.
+                    Kisah ini bermula pada Juli 2019. Tryanda, yang kala itu
+                    masih duduk di bangku sekolah menengah (18 tahun), tak
+                    sengaja bertemu Putri di beranda Facebook. Kesan pertama
+                    begitu sederhana Putri sosok yang tenang namun ramah. Dari
+                    sekadar sapaan maya, tumbuhlah rasa penasaran yang menjadi
+                    awal perjalanan panjang mereka.
                   </p>
                 </div>
               </div>
@@ -44,11 +45,12 @@ export default function LoveStorySection() {
                     💞 Benih Cinta dalam Ujian
                   </p>
                   <p className="text-sm mb-0 text-gray-700 dark:text-gray-300">
-                    Memasuki Februari 2025, proyek mereka menghadapi krisis:
-                    klien menolak konsep awal dan mengancam membatalkan kontrak.
-                    Di tengah tekanan, Putri Suciati tampil dengan solusi
-                    kreatif yang menyelamatkan proyek, membuat Tryanda Anggita
-                    Suwito terkesan dengan ketenangan dan kecerdasannya.
+                    Waktu menjadi saksi perjalanan kedewasaan mereka. Bukan hal
+                    mudah menyatukan dua kepala yang bertumbuh dari masa remaja.
+                    Jarak, kesibukan, dan dinamika kehidupan sempat menguji
+                    komitmen. Namun, setiap tantangan justru mempererat ikatan,
+                    mengubah cinta kasih masa sekolah menjadi kesetiaan yang
+                    tangguh dan saling menguatkan.
                   </p>
                 </div>
               </div>
@@ -64,13 +66,12 @@ export default function LoveStorySection() {
                     💍 Langkah Menuju Ridha Allah
                   </p>
                   <p className="text-sm mb-0 text-gray-700 dark:text-gray-300">
-                    Proses taaruf berjalan penuh keikhlasan, dengan pendamping
-                    yang memastikan setiap langkah sesuai syariat. Tryanda
-                    Anggita Suwito dan Putri Suciati saling terbuka tentang
-                    impian membangun keluarga yang diridhai Allah. Pada Maret
-                    2025, setelah istikharah dan mendapat restu keluarga,
-                    Tryanda Anggita Suwito melamar Putri Suciati dalam acara
-                    sederhana namun penuh makna.
+                    Setelah lima tahun membersamai dalam doa dan harapan,
+                    sampailah kami di dermaga tujuan. Desember 2025 menjadi
+                    saksi penyatuan dua hati dalam ikatan suci pernikahan.
+                    Dengan restu orang tua dan niat menyempurnakan separuh
+                    agama, kami berikrar sehidup sesurga, memulai lembaran baru
+                    sebagai keluarga yang Sakinah, Mawaddah, wa Rahmah.
                   </p>
                 </div>
               </div>

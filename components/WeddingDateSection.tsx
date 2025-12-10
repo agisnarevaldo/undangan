@@ -80,8 +80,7 @@ export default function WeddingDateSection({
               Akad
             </h2>
             <p className="text-[0.95rem] text-gray-700 dark:text-gray-300">
-              Pukul {pad(countdown.hours)}:{pad(countdown.minutes)} WIB -
-              Selesai
+              Pukul 08:00 WIB - Selesai
             </p>
           </div>
           <div className="py-2" data-aos="fade-left" data-aos-duration="1500">
@@ -118,7 +117,8 @@ export default function WeddingDateSection({
             Maps
           </a>
           <small className="block my-1 text-gray-600 dark:text-gray-400">
-            Link Margasari RT07/RW05 Kec.langensari KEL.Bojongkantong Kota Banjar, Jawa Barat
+            Link Margasari RT 07 / RW 05 Kec. Langensari Kel. Bojongkantong Kota
+            Banjar, Jawa Barat
           </small>
         </div>
       </div>
