@@ -9,23 +9,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Wedding Invitation - Our Special Day",
+  title: "Undangan Pernikahan - Hari Istimewa Kami",
   description:
-    "You are cordially invited to celebrate our wedding. Join us as we begin our journey together.",
+    "Anda diundang untuk merayakan pernikahan kami. Bergabunglah bersama kami di hari bahagia ini.",
   keywords:
     "undangan, wedding, undangan digital, undangan online, wedding invitation, undangan pernikahan online",
   authors: [{ name: "Wedding Invitation" }],
   robots: "index, follow, max-image-preview:large",
   openGraph: {
-    title: "Wedding Invitation - Join Us on Our Special Day",
+    title: "Undangan Pernikahan - Bergabunglah di Hari Istimewa Kami",
     description:
-      "You are cordially invited to celebrate our wedding. Save the date and join us!",
+      "Anda diundang untuk merayakan pernikahan kami. Simpan tanggalnya dan bergabunglah bersama kami!",
     images: [
       {
-        url: "/images/bg.webp",
+        url: "/images/updated/bride.png",
         width: 1200,
         height: 630,
-        alt: "Wedding Invitation Preview",
+        alt: "Preview Undangan Pernikahan",
       },
     ],
     locale: "id_ID",
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   // icons auto-detected from app/icon.png
   twitter: {
     card: "summary_large_image",
-    title: "Wedding Invitation - Our Special Day",
-    description: "You are cordially invited to celebrate our wedding.",
-    images: ["/images/bg.webp"],
+    title: "Undangan Pernikahan - Hari Istimewa Kami",
+    description: "Anda diundang untuk merayakan pernikahan kami.",
+    images: ["/images/updated/bride.png"],
   },
   appleWebApp: {
     capable: true,
-    title: "Wedding Invitation",
+    title: "Undangan Pernikahan",
     statusBarStyle: "black-translucent",
   },
 };

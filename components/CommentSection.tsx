@@ -498,7 +498,7 @@ export default function CommentSection() {
             </div>
 
             {/* Telegram Style Chat Bar */}
-            <div className="flex items-end gap-2 bg-gray-100 dark:bg-[#212529] p-1 rounded-[2rem] shadow-inner border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-2 bg-gray-100 dark:bg-[#212529] p-2 rounded-[2rem] shadow-inner border border-gray-200 dark:border-gray-700">
               {/* Avatar Upload */}
               <div className="relative flex-shrink-0">
                 <input
@@ -590,9 +590,9 @@ export default function CommentSection() {
               </div>
 
               {/* Text Input */}
-              <div className="flex-1 min-w-0 py-1">
+              <div className="flex-1 min-w-0 flex items-center">
                 <textarea
-                  className="w-full bg-transparent border-0 p-0 text-sm text-gray-900 dark:text-gray-100 focus:ring-0 focus:outline-none outline-none placeholder-gray-500 dark:placeholder-gray-400 resize-none leading-relaxed max-h-32 overflow-y-auto"
+                  className="w-full bg-transparent border-0 p-0 text-sm text-gray-900 dark:text-gray-100 focus:ring-0 focus:outline-none outline-none placeholder-gray-500 dark:placeholder-gray-400 resize-none leading-snug max-h-32 overflow-y-auto"
                   rows={1}
                   placeholder="Tulis pesan..."
                   value={formData.comment}
@@ -640,12 +640,12 @@ export default function CommentSection() {
               </button>
             </div>
 
-            <div className="flex justify-between items-center mt-2 px-1">
-              <p className="text-xs text-gray-400 dark:text-gray-500">
+            <div className="flex flex-col md:flex-row justify-between items-center mt-2 px-1 gap-1">
+              <p className="text-xs text-gray-400 dark:text-gray-500 text-center md:text-left">
                 unggah profile kamu dan kirim ucapanmu
               </p>
               <p
-                className={`text-xs ${
+                className={`hidden md:block text-xs ${
                   formData.comment.trim().length < 10
                     ? "text-red-500 dark:text-red-400"
                     : "text-gray-400 dark:text-gray-500"
