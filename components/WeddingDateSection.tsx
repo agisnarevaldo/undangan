@@ -75,7 +75,7 @@ export default function WeddingDateSection({
               Resepsi
             </h2>
             <p className="text-[0.95rem] text-gray-700 dark:text-gray-300">
-              Pukul 14.00 WIB - Selesai
+              Pukul 11:00 WIB - Selesai
             </p>
           </div>
         </div>
