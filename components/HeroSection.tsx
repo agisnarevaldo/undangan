@@ -47,7 +47,7 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
                     style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                 />
                 <h2 className="font-esthetic my-4 text-[2.25rem]">Wahyu &amp; Riski</h2>
-                <p className="my-2 text-xl text-gray-700 dark:text-gray-300">Rabu, 15 Maret 2023</p>
+                <p className="my-2 text-xl text-gray-700 dark:text-gray-300">Minggu, 14 Desember 2025</p>
                 <button
                     onClick={handleAddToCalendar}
                     className="inline-block bg-white dark:bg-[#212529bf] backdrop-blur-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors my-3 cursor-pointer"
