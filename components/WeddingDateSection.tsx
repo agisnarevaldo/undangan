@@ -67,7 +67,7 @@ export default function WeddingDateSection({
               Akad
             </h2>
             <p className="text-[0.95rem] text-gray-700 dark:text-gray-300">
-              Pukul 08:00 WIB - Selesai
+              Pukul 09:00 WIB - Selesai
             </p>
           </div>
           <div className="py-2" data-aos="fade-left" data-aos-duration="1500">
