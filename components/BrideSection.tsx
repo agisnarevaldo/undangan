@@ -37,7 +37,12 @@ export default function BrideSection() {
               src="/images/updated/groom.png"
               alt="cowo"
               className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer"
-              style={{ width: "150px", height: "150px", objectFit: "cover" }}
+              style={{
+                width: "150px",
+                height: "150px",
+                objectFit: "cover",
+                objectPosition: "top",
+              }}
             />
             <h2 className="font-esthetic m-0 text-[2.125rem] text-gray-900 dark:text-gray-100">
               Tryanda Anggita Suwito
@@ -86,10 +91,15 @@ export default function BrideSection() {
           </div>
           <div className="pb-1">
             <img
-              src="/images/updated/bride.png"
+              src="/images/updated/bride.jpg"
               alt="cewe"
               className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer"
-              style={{ width: "150px", height: "150px", objectFit: "cover" }}
+              style={{
+                width: "150px",
+                height: "150px",
+                objectFit: "cover",
+                objectPosition: "top",
+              }}
             />
             <h2 className="font-esthetic m-0 text-[2.125rem] text-gray-900 dark:text-gray-100">
               Putri Suciati
