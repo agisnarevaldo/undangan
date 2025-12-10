@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
     images: [
       {
-        url: 'https://ulems.my.id/assets/images/bg.webp',
+        url: 'https://ulems.my.id/images/bg.webp',
         width: 980,
         height: 980,
         alt: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     siteName: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
   },
   icons: {
-    icon: '/assets/images/icon-192x192.png',
-    apple: '/assets/images/icon-192x192.png',
+    icon: '/images/icon-192x192.png',
+    apple: '/images/icon-192x192.png',
   },
   appleWebApp: {
     capable: true,
