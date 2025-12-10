@@ -69,9 +69,13 @@ export default function GuestPage() {
     if (typeof window !== "undefined" && (window as any).confetti) {
       setTimeout(() => {
         (window as any).confetti({
-          particleCount: 100,
-          spread: 70,
+          particleCount: 150,
+          spread: 100,
           origin: { y: 0.6 },
+          colors: ["#FFD700", "#F5F5DC", "#DAA520"], // Gold, Beige, GoldenRod
+          gravity: 0.8,
+          scalar: 1.2,
+          ticks: 300,
         });
       }, 500);
     }
@@ -109,7 +113,7 @@ export default function GuestPage() {
                 Tryanda &amp; Putri
               </h2>
               <p className="m-0 text-base text-gray-700 dark:text-gray-300">
-                Rabu, 15 Maret 2023
+                Minggu, 14 Desember 2025
               </p>
             </div>
           </div>

@@ -47,7 +47,7 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
         loop
         muted
         playsInline
-        className="absolute opacity-25 inset-0 w-full h-full object-cover bg-cover-home"
+        className="absolute opacity-60 inset-0 w-full h-full object-cover bg-cover-home"
       >
         <source src="/videos/cinematic.mp4" type="video/mp4" />
       </video>

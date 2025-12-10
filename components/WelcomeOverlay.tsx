@@ -14,7 +14,7 @@ export default function WelcomeOverlay({
       className="fixed inset-0 bg-white dark:bg-black overflow-y-auto z-50 flex items-center justify-center p-4"
       id="welcome"
     >
-      <div className="absolute inset-0 opacity-25 -z-10">
+      <div className="absolute inset-0 opacity-60 -z-10">
         <video
           autoPlay
           loop
