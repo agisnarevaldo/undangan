@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
 
         console.log('Sanitized comment data:', JSON.stringify(commentData))
 
-        // Check rate limiting (max 3 comments per IP per hour)
+        // Check rate limiting (max 10 comments per IP per hour - increased for better UX)
         const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString()
         const { data: recentComments } = await supabase
             .from('comments')
@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
             .eq('ip_address', commentData.ip_address)
             .gte('created_at', oneHourAgo)
 
-        if (recentComments && recentComments.length >= 3) {
+        if (recentComments && recentComments.length >= 10) {
             console.log('Rate limit exceeded for IP:', commentData.ip_address)
             return NextResponse.json(
                 { success: false, error: 'Terlalu banyak komentar. Coba lagi nanti.' },
