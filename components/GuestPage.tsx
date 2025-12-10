@@ -109,7 +109,7 @@ export default function GuestPage() {
                 Tryanda &amp; Putri
               </h2>
               <p className="m-0 text-base text-gray-700 dark:text-gray-300">
-                Rabu, 15 Maret 2023
+                Minggu, 14 Desember 2025
               </p>
             </div>
           </div>
