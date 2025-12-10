@@ -30,6 +30,29 @@ export default function CommentSection() {
   const [likingIds, setLikingIds] = useState<Set<string>>(new Set()); // Prevent like spam
   const [loadingMore, setLoadingMore] = useState(false); // Load more indicator
 
+  // Detect subdomain and set group automatically
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hostname = window.location.hostname;
+      const subdomain = hostname.split(".")[0];
+
+      // Map subdomain to group
+      let detectedGroup = "wedding"; // default
+      if (subdomain === "irkon") {
+        detectedGroup = "irkon";
+      } else if (subdomain === "kkn") {
+        detectedGroup = "kkn";
+      } else if (subdomain === "wedding" || hostname === "trypss.xyz") {
+        detectedGroup = "wedding";
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        group: detectedGroup,
+      }));
+    }
+  }, []);
+
   // Fetch comments on mount
   useEffect(() => {
     fetchComments(1, true);
