@@ -77,6 +77,8 @@ export default function CommentSection() {
         setSubmitting(true)
 
         try {
+            console.log('Submitting comment:', formData)
+            
             const response = await fetch('/api/comments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -84,6 +86,7 @@ export default function CommentSection() {
             })
 
             const result = await response.json()
+            console.log('API Response:', { status: response.status, result })
 
             if (result.success) {
                 // Reset form
@@ -98,7 +101,9 @@ export default function CommentSection() {
                     behavior: 'smooth'
                 })
             } else {
-                setErrors(result.errors || [result.error])
+                const errorMessages = result.errors || [result.error || 'Gagal mengirim komentar']
+                console.error('Submission failed:', errorMessages)
+                setErrors(errorMessages)
             }
         } catch (error) {
             console.error('Failed to submit comment:', error)

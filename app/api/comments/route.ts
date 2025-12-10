@@ -42,9 +42,13 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
+        // Log for debugging
+        console.log('POST /api/comments - Received data:', JSON.stringify(body))
+
         // Validate input
         const errors = validateComment(body)
         if (errors.length > 0) {
+            console.log('Validation errors:', errors)
             return NextResponse.json(
                 { success: false, errors },
                 { status: 400 }
@@ -61,6 +65,8 @@ export async function POST(request: NextRequest) {
                 'unknown',
         }
 
+        console.log('Sanitized comment data:', JSON.stringify(commentData))
+
         // Check rate limiting (max 3 comments per IP per hour)
         const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString()
         const { data: recentComments } = await supabase
@@ -70,6 +76,7 @@ export async function POST(request: NextRequest) {
             .gte('created_at', oneHourAgo)
 
         if (recentComments && recentComments.length >= 3) {
+            console.log('Rate limit exceeded for IP:', commentData.ip_address)
             return NextResponse.json(
                 { success: false, error: 'Terlalu banyak komentar. Coba lagi nanti.' },
                 { status: 429 }
@@ -83,8 +90,12 @@ export async function POST(request: NextRequest) {
             .select()
             .single()
 
-        if (error) throw error
+        if (error) {
+            console.error('Supabase insert error:', error)
+            throw error
+        }
 
+        console.log('Comment created successfully:', data?.id)
         return NextResponse.json({ success: true, data })
     } catch (error) {
         console.error('POST /api/comments error:', error)
