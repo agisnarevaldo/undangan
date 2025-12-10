@@ -3,7 +3,6 @@ SECURITY.md
 node_modules
 package-lock.json
 dist
-public
 
 # Next.js
 /.next/
@@ -32,6 +31,4 @@ yarn-error.log*
 next-env.d.ts 
 
 # IDEs and editors
-.vscode/*
-!.vscode/settings.json
-!.vscode/mcp.json
+.vscode/
