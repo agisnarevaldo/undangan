@@ -78,7 +78,7 @@ export default function CommentSection() {
 
         try {
             console.log('Submitting comment:', formData)
-            
+
             const response = await fetch('/api/comments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -91,6 +91,9 @@ export default function CommentSection() {
             if (result.success) {
                 // Reset form
                 setFormData({ name: '', presence: 1, comment: '' })
+
+                // Invalidate cache to force fresh fetch
+                storage.invalidateCache()
 
                 // Refresh comments
                 await fetchComments(1, true)
@@ -278,8 +281,8 @@ export default function CommentSection() {
                                                     onClick={() => !comment.isLiked && handleLike(comment.id)}
                                                     disabled={comment.isLiked}
                                                     className={`flex items-center gap-1 text-xs transition-colors ${comment.isLiked
-                                                            ? 'text-pink-500 cursor-default'
-                                                            : 'text-gray-400 hover:text-pink-500'
+                                                        ? 'text-pink-500 cursor-default'
+                                                        : 'text-gray-400 hover:text-pink-500'
                                                         }`}
                                                 >
                                                     <i className={`fa-${comment.isLiked ? 'solid' : 'regular'} fa-heart`}></i>

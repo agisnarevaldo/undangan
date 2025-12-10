@@ -62,4 +62,9 @@ export const storage = {
             return true
         }
     },
+
+    invalidateCache: () => {
+        if (typeof window === 'undefined') return
+        localStorage.removeItem(STORAGE_KEYS.LAST_FETCH)
+    },
 }
