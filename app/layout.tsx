@@ -1,57 +1,68 @@
-import type { Metadata, Viewport } from 'next'
-import './globals.css'
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  themeColor: '#ffffff',
-  colorScheme: 'dark light',
-}
+  themeColor: "#ffffff",
+  colorScheme: "dark light",
+};
 
 export const metadata: Metadata = {
-  title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
-  description: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
-  keywords: 'undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan',
-  authors: [{ name: 'dewanakl' }],
-  robots: 'index, follow, max-image-preview:large',
+  title:
+    "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+  description:
+    "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+  keywords:
+    "undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan",
+  authors: [{ name: "dewanakl" }],
+  robots: "index, follow, max-image-preview:large",
   openGraph: {
-    title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
-    description: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
+    title:
+      "Website Undangan Pernikahan Tryanda Anggita Suwito dan Putri Suciati Secara Online",
+    description:
+      "Website Undangan Pernikahan Tryanda Anggita Suwito dan Putri Suciati Secara Online",
     images: [
       {
-        url: 'https://ulems.my.id/images/bg.webp',
+        url: "https://ulems.my.id/images/bg.webp",
         width: 980,
         height: 980,
-        alt: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
+        alt: "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
       },
     ],
-    locale: 'id_ID',
-    type: 'website',
-    url: 'https://ulems.my.id',
-    siteName: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
+    locale: "id_ID",
+    type: "website",
+    url: "https://ulems.my.id",
+    siteName:
+      "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
   },
   icons: {
-    icon: '/images/icon-192x192.png',
-    apple: '/images/icon-192x192.png',
+    icon: "/images/icon-192x192.png",
+    apple: "/images/icon-192x192.png",
   },
   appleWebApp: {
     capable: true,
-    title: 'Website Undangan Pernikahan Wahyu dan Riski Secara Online',
-    statusBarStyle: 'black-translucent',
+    title:
+      "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+    statusBarStyle: "black-translucent",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Sacramento&family=Noto+Naskh+Arabic&display=swap"
           rel="stylesheet"
@@ -77,5 +88,5 @@ export default function RootLayout({
         />
       </body>
     </html>
-  )
+  );
 }
