@@ -36,10 +36,7 @@ export const metadata: Metadata = {
     siteName:
       "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
   },
-  icons: {
-    icon: "/images/icon-192x192.png",
-    apple: "/images/icon-192x192.png",
-  },
+  // icons auto-detected from app/icon.png
   appleWebApp: {
     capable: true,
     title:
