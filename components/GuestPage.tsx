@@ -131,6 +131,8 @@ export default function GuestPage() {
             <LocationMap />
             <SvgDivider variant="3" />
 
+            <GiftSection />
+            <SvgDivider variant="5" />
             <CommentSection />
             <SvgDivider variant="6" />
 
