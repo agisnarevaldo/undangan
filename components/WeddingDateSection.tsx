@@ -37,6 +37,13 @@ export default function WeddingDateSection({ countdown }: WeddingDateSectionProp
                     </div>
                 </div>
                 <p className="py-2 m-0 text-[0.95rem] text-gray-700 dark:text-gray-300">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan acara:</p>
+                <div className="relative">
+                    <div className="absolute top-0 right-[5%]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="opacity-50 animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                        </svg>
+                    </div>
+                </div>
                 <div className="overflow-x-hidden">
                     <div className="py-2" data-aos="fade-right" data-aos-duration="1500">
                         <h2 className="font-esthetic m-0 py-2 text-2xl text-gray-900 dark:text-gray-100">Akad</h2>
@@ -45,6 +52,13 @@ export default function WeddingDateSection({ countdown }: WeddingDateSectionProp
                     <div className="py-2" data-aos="fade-left" data-aos-duration="1500">
                         <h2 className="font-esthetic m-0 py-2 text-2xl text-gray-900 dark:text-gray-100">Resepsi</h2>
                         <p className="text-[0.95rem] text-gray-700 dark:text-gray-300">Pukul 13.00 WIB - Selesai</p>
+                    </div>
+                </div>
+                <div className="relative">
+                    <div className="absolute bottom-0 left-[5%]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="opacity-50 animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                        </svg>
                     </div>
                 </div>
                 <div className="py-2">
