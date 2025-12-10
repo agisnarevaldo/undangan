@@ -159,7 +159,7 @@ export default function CommentSection() {
     return (
         <section className="bg-section pb-2" id="comment">
             <div className="mx-auto px-4">
-                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-white dark:bg-gray-800">
+                <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-[#f8f9fa] dark:bg-[#343a40]">
                     <h2 className="font-esthetic text-center py-2 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">Ucapan &amp; Doa</h2>
 
                     {/* Form */}
@@ -180,7 +180,7 @@ export default function CommentSection() {
                             </label>
                             <input
                                 type="text"
-                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-[#212529] text-gray-900 dark:text-gray-100"
                                 id="form-name"
                                 placeholder="Isikan Nama Anda"
                                 value={formData.name}
@@ -195,7 +195,7 @@ export default function CommentSection() {
                                 <i className="fa-solid fa-circle-check mr-2"></i>Presensi
                             </label>
                             <select
-                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-[#212529] text-gray-900 dark:text-gray-100"
                                 id="form-presence"
                                 value={formData.presence}
                                 onChange={(e) => setFormData({ ...formData, presence: parseInt(e.target.value) as 1 | 2 })}
@@ -210,7 +210,7 @@ export default function CommentSection() {
                                 <i className="fa-solid fa-comment mr-2"></i>Ucapan &amp; Doa
                             </label>
                             <textarea
-                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                                className="w-full border border-gray-300 dark:border-gray-600 rounded-2xl px-3 py-2 text-sm bg-white dark:bg-[#212529] text-gray-900 dark:text-gray-100"
                                 id="form-comment"
                                 rows={4}
                                 placeholder="Berikan Ucapan & Doa"
@@ -263,7 +263,7 @@ export default function CommentSection() {
                                     {comments.map((comment) => (
                                         <div
                                             key={comment.id}
-                                            className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-3 border border-gray-200 dark:border-gray-700"
+                                            className="shadow-lg rounded-2xl p-3 border border-gray-300 dark:border-gray-600"
                                         >
                                             <div className="flex justify-between items-start mb-2">
                                                 <div className="flex-1">

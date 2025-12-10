@@ -28,7 +28,7 @@ export default function GuestPage() {
       setGuestName(decodeURIComponent(name))
     }
 
-    const targetDate = new Date('2023-03-15 09:30:00').getTime()
+    const targetDate = new Date('2025-12-14 08:00:00').getTime()
 
     const updateCountdown = () => {
       const now = Date.now()

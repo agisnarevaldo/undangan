@@ -14,6 +14,23 @@ interface HeroSectionProps {
 export default function HeroSection({ countdown }: HeroSectionProps) {
     const pad = (num: number) => num.toString().padStart(2, '0')
 
+    const handleAddToCalendar = () => {
+        // Event details
+        const eventDetails = {
+            title: 'Pernikahan Wahyu & Riski',
+            description: 'Undangan Pernikahan Wahyu & Riski',
+            location: 'Lokasi Acara', // Sesuaikan dengan lokasi sebenarnya
+            startDate: '20251214T080000', // Format: YYYYMMDDTHHMMSS (14 Desember 2025, 08:00)
+            endDate: '20251214T140000',   // Format: YYYYMMDDTHHMMSS (14 Desember 2025, 14:00)
+        }
+
+        // Build Google Calendar URL
+        const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}&dates=${eventDetails.startDate}/${eventDetails.endDate}`
+
+        // Open in new tab
+        window.open(googleCalendarUrl, '_blank')
+    }
+
     return (
         <section id="home" className="bg-gray-100 dark:bg-[#212529] relative overflow-hidden p-0 m-0">
             <img
@@ -31,7 +48,10 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
                 />
                 <h2 className="font-esthetic my-4 text-[2.25rem]">Wahyu &amp; Riski</h2>
                 <p className="my-2 text-xl text-gray-700 dark:text-gray-300">Rabu, 15 Maret 2023</p>
-                <button className="inline-block bg-white dark:bg-[#212529bf] backdrop-blur-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors my-3">
+                <button
+                    onClick={handleAddToCalendar}
+                    className="inline-block bg-white dark:bg-[#212529bf] backdrop-blur-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow rounded-full px-3 py-1 text-[0.825rem] hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors my-3 cursor-pointer"
+                >
                     <i className="fa-solid fa-calendar-check mr-2"></i>Save Google Calendar
                 </button>
                 <div className="flex justify-center items-center mt-4 mb-2">
