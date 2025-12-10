@@ -20,41 +20,28 @@ export default function WeddingDateSection({
         <h2 className="font-esthetic py-4 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">
           Moment Bahagia
         </h2>
-        <div className="border border-gray-300 dark:border-gray-600 rounded-full shadow py-2 px-4 mt-2 mb-4 inline-block bg-section">
-          <div className="flex justify-center gap-4">
-            <div className="p-1">
-              <p className="inline m-0 p-0 text-xl text-gray-900 dark:text-gray-100">
-                {pad(countdown.days)}
+        <div
+          className="flex justify-center gap-3 md:gap-6 mt-4 mb-6"
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+        >
+          {[
+            { label: "Hari", value: countdown.days },
+            { label: "Jam", value: countdown.hours },
+            { label: "Menit", value: countdown.minutes },
+            { label: "Detik", value: countdown.seconds },
+          ].map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg transform transition hover:scale-105">
+                <p className="m-0 text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-100 font-serif">
+                  {pad(item.value)}
+                </p>
+              </div>
+              <p className="mt-2 text-xs md:text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                {item.label}
               </p>
-              <small className="ml-1 inline text-gray-600 dark:text-gray-400">
-                Hari
-              </small>
             </div>
-            <div className="p-1">
-              <p className="inline m-0 p-0 text-xl text-gray-900 dark:text-gray-100">
-                {pad(countdown.hours)}
-              </p>
-              <small className="ml-1 inline text-gray-600 dark:text-gray-400">
-                Jam
-              </small>
-            </div>
-            <div className="p-1">
-              <p className="inline m-0 p-0 text-xl text-gray-900 dark:text-gray-100">
-                {pad(countdown.minutes)}
-              </p>
-              <small className="ml-1 inline text-gray-600 dark:text-gray-400">
-                Menit
-              </small>
-            </div>
-            <div className="p-1">
-              <p className="inline m-0 p-0 text-xl text-gray-900 dark:text-gray-100">
-                {pad(countdown.seconds)}
-              </p>
-              <small className="ml-1 inline text-gray-600 dark:text-gray-400">
-                Detik
-              </small>
-            </div>
-          </div>
+          ))}
         </div>
         <p className="py-2 m-0 text-[0.95rem] text-gray-700 dark:text-gray-300">
           Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah

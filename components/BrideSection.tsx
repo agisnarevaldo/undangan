@@ -36,7 +36,7 @@ export default function BrideSection() {
             <img
               src="/images/updated/groom.png"
               alt="cowo"
-              className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer"
+              className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-500"
               style={{
                 width: "150px",
                 height: "150px",
@@ -93,7 +93,7 @@ export default function BrideSection() {
             <img
               src="/images/updated/bride.jpg"
               alt="cewe"
-              className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer"
+              className="rounded-full border-4 border-gray-100 dark:border-gray-700 shadow-md my-4 mx-auto cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-500"
               style={{
                 width: "150px",
                 height: "150px",

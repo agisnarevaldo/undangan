@@ -68,6 +68,7 @@ export async function POST(request: NextRequest) {
       presence: body.presence,
       comment: sanitizeInput(body.comment),
       group: body.group || null,
+      avatar_url: body.avatar_url || null, // Store avatar URL
       ip_address:
         request.headers.get("x-forwarded-for") ||
         request.headers.get("x-real-ip") ||

@@ -9,6 +9,7 @@ export interface Comment {
   updated_at: string;
   isLiked?: boolean; // Client-side only
   group?: string | null;
+  avatar_url?: string | null; // Supabase Storage URL
 }
 
 export interface CommentFormData {
@@ -16,6 +17,7 @@ export interface CommentFormData {
   presence: 1 | 2;
   comment: string;
   group?: string;
+  avatar_url?: string; // Avatar URL from Supabase Storage
 }
 
 export interface PaginationParams {
