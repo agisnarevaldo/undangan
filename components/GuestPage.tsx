@@ -136,7 +136,6 @@ export default function GuestPage() {
             <SvgDivider variant="3" />
 
             <GiftSection />
-            <SvgDivider variant="5" />
             <CommentSection />
             <SvgDivider variant="6" />
 

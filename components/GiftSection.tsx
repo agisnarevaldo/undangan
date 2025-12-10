@@ -7,7 +7,7 @@ export default function GiftSection() {
   const [showGift, setShowGift] = useState(false);
 
   return (
-    <section className="bg-section pb-3" id="gift">
+    <section className="bg-section pb-4 border-b border-gray-300 dark:border-gray-700" id="gift">
       <div className="mx-auto px-4 text-center">
         <h2 className="font-esthetic pt-3 mb-4 text-[2.25rem] text-gray-900 dark:text-gray-100">
           Love Gift
@@ -21,7 +21,7 @@ export default function GiftSection() {
           className="bg-[#f8f9fa] dark:bg-[#343a40] rounded-2xl shadow-lg p-3 mx-4 mt-4 text-start cursor-pointer transition-transform hover:scale-[1.02]"
           data-aos="fade-up"
           data-aos-duration="2500"
-          onClick={() => {}}
+          onClick={() => { }}
         >
           <i className="fa-solid fa-wallet fa-lg"></i>
           <p className="d-inline ms-2 text-gray-900 dark:text-gray-100">DANA</p>
@@ -64,9 +64,8 @@ export default function GiftSection() {
             </button>
           </div>
           <div
-            className={`overflow-hidden transition-all duration-300 ${
-              showQris ? "max-h-96 mt-2" : "max-h-0"
-            }`}
+            className={`overflow-hidden transition-all duration-300 ${showQris ? "max-h-96 mt-2" : "max-h-0"
+              }`}
           >
             <hr className="my-2" />
             <div className="flex flex-col items-center gap-3">
@@ -117,9 +116,8 @@ export default function GiftSection() {
             </button>
           </div>
           <div
-            className={`overflow-hidden transition-all duration-300 ${
-              showGift ? "max-h-96 mt-2" : "max-h-0"
-            }`}
+            className={`overflow-hidden transition-all duration-300 ${showGift ? "max-h-96 mt-2" : "max-h-0"
+              }`}
           >
             <hr className="my-2" />
             <div className="flex justify-between items-center mb-2">

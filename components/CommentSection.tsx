@@ -181,7 +181,7 @@ export default function CommentSection() {
   };
 
   return (
-    <section className="bg-section pb-2" id="comment">
+    <section className="bg-section pb-2 pt-4" id="comment">
       <div className="mx-auto px-4">
         <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-[#f8f9fa] dark:bg-[#343a40]">
           <h2 className="font-esthetic text-center py-2 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">
@@ -340,16 +340,14 @@ export default function CommentSection() {
                             !comment.isLiked && handleLike(comment.id)
                           }
                           disabled={comment.isLiked}
-                          className={`flex items-center gap-1 text-xs transition-colors ${
-                            comment.isLiked
+                          className={`flex items-center gap-1 text-xs transition-colors ${comment.isLiked
                               ? "text-pink-500 cursor-default"
                               : "text-gray-400 hover:text-pink-500"
-                          }`}
+                            }`}
                         >
                           <i
-                            className={`fa-${
-                              comment.isLiked ? "solid" : "regular"
-                            } fa-heart`}
+                            className={`fa-${comment.isLiked ? "solid" : "regular"
+                              } fa-heart`}
                           ></i>
                           <span>{comment.likes}</span>
                         </button>
