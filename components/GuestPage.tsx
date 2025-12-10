@@ -96,23 +96,26 @@ export default function GuestPage() {
         <div className="sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 m-0 p-0 overflow-y-auto pb-20">
           <main>
             <HeroSection countdown={countdown} />
-            <SvgDivider variant="1" />
+            <SvgDivider className="" variant="1" />
+
             <BrideSection />
             <SvgDivider variant="2" />
+
             <QuranSection />
-            <SvgDivider variant="3" />
             <LoveStorySection />
+
             <SvgDivider variant="4" />
             <WeddingDateSection countdown={countdown} />
-            <SvgDivider variant="3" />
+
             <GallerySection />
             <SvgDivider variant="3" />
+
             <GiftSection />
-            <SvgDivider variant="5" />
+
             <CommentSection />
             <SvgDivider variant="6" />
 
-            <section className="bg-white dark:bg-gray-900">
+            <section className="bg-white dark:bg-black">
               <div className="mx-auto px-4 text-center h-full pb-12">
                 <p className="pb-2 pt-4 text-[0.95rem] text-gray-700 dark:text-gray-300">Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.</p>
                 <h2 className="font-esthetic text-2xl text-gray-900 dark:text-gray-100">Wassalamualaikum Warahmatullahi Wabarakatuh</h2>

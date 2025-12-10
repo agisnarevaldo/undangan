@@ -1,8 +1,13 @@
 'use client'
 
+import { useState } from 'react'
+
 export default function GiftSection() {
+    const [showQris, setShowQris] = useState(false)
+    const [showGift, setShowGift] = useState(false)
+
     return (
-        <section className="bg-gray-100 dark:bg-gray-800 pb-3" id="gift">
+        <section className="bg-section pb-3" id="gift">
             <div className="mx-auto px-4 text-center">
                 <h2 className="font-esthetic pt-3 mb-4 text-[2.25rem] text-gray-900 dark:text-gray-100">Love Gift</h2>
                 <p className="mb-1 text-[0.95rem] text-gray-700 dark:text-gray-300">Dengan hormat, bagi Anda yang ingin memberikan tanda kasih kepada kami, dapat melalui:</p>
@@ -32,13 +37,12 @@ export default function GiftSection() {
                         </p>
                         <button
                             className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow-sm rounded-2xl py-0 px-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseQris"
+                            onClick={() => setShowQris(!showQris)}
                         >
                             <i className="fa-solid fa-circle-info fa-sm mr-1"></i>Info
                         </button>
                     </div>
-                    <div className="collapse mt-2" id="collapseQris">
+                    <div className={`overflow-hidden transition-all duration-300 ${showQris ? 'max-h-96 mt-2' : 'max-h-0'}`}>
                         <hr className="my-2" />
                         <div className="flex justify-center items-center">
                             <img src="/images/donate.png" alt="donate" className="max-w-full rounded bg-white p-2" />
@@ -55,13 +59,12 @@ export default function GiftSection() {
                         </p>
                         <button
                             className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white shadow-sm rounded-2xl py-0 px-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseGift"
+                            onClick={() => setShowGift(!showGift)}
                         >
                             <i className="fa-solid fa-circle-info fa-sm mr-1"></i>Info
                         </button>
                     </div>
-                    <div className="collapse mt-2" id="collapseGift">
+                    <div className={`overflow-hidden transition-all duration-300 ${showGift ? 'max-h-96 mt-2' : 'max-h-0'}`}>
                         <hr className="my-2" />
                         <div className="flex justify-between items-center mb-2">
                             <p className="m-0 p-0 text-sm text-gray-700 dark:text-gray-300">

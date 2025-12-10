@@ -2,7 +2,7 @@
 
 export default function QuranSection() {
     return (
-        <section className="bg-gray-100 dark:bg-gray-800 pb-4">
+        <section className="bg-section pb-4">
             <div className="mx-auto px-4 text-center">
                 <h2 className="font-esthetic pt-4 mb-4 text-[2.25rem] text-gray-900 dark:text-gray-100">Allah Subhanahu Wa Ta&apos;ala berfirman</h2>
                 <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-4 mx-4 bg-white dark:bg-gray-900" data-aos="fade-up" data-aos-duration="1500">

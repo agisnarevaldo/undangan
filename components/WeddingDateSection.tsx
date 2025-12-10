@@ -13,7 +13,7 @@ export default function WeddingDateSection({ countdown }: WeddingDateSectionProp
     const pad = (num: number) => num.toString().padStart(2, '0')
 
     return (
-        <section className="bg-gray-100 dark:bg-gray-800 pb-8" id="wedding-date">
+        <section className="bg-white dark:bg-black pb-8" id="wedding-date">
             <div className="mx-auto px-4 text-center">
                 <h2 className="font-esthetic py-4 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">Moment Bahagia</h2>
                 <div className="border border-gray-300 dark:border-gray-600 rounded-full shadow py-2 px-4 mt-2 mb-4 inline-block bg-white dark:bg-gray-800">
@@ -59,10 +59,10 @@ export default function WeddingDateSection({ countdown }: WeddingDateSectionProp
                     <small className="block my-1 text-gray-600 dark:text-gray-400">RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.</small>
                 </div>
 
-                <p className="py-2 m-0 text-[0.95rem] text-gray-700 dark:text-gray-300">Demi kehangatan bersama, kami memohon kesediaan Anda untuk mengenakan dress code berikut:</p>
+                {/* <p className="py-2 m-0 text-[0.95rem] text-gray-700 dark:text-gray-300">Demi kehangatan bersama, kami memohon kesediaan Anda untuk mengenakan dress code berikut:</p>
                 <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-4 mx-4 mt-3 bg-white dark:bg-gray-900">
                     <p className="text-[0.95rem] text-gray-700 dark:text-gray-300">Busana batik dan bersepatu.</p>
-                </div>
+                </div> */}
             </div>
         </section>
     )

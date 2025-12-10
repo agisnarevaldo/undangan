@@ -69,6 +69,11 @@
     @apply bg-light-bg dark:bg-dark-bg;
   }
 
+  /* Section background that matches SVG divider colors */
+  .bg-section {
+    @apply bg-[#f8f9fa] dark:bg-[#212529];
+  }
+
   /* Text utilities */
   .text-theme-auto {
     @apply text-[rgb(var(--color-text-dark))] dark:text-[rgb(var(--color-text-light))];
@@ -99,6 +104,13 @@
   /* Navbar theme */
   .navbar {
     @apply bg-white/75 dark:bg-gray-900/75 backdrop-blur-[0.5rem];
+  }
+
+  /* Hero background image with gradient mask */
+  .bg-cover-home {
+    object-fit: cover;
+    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+    -webkit-mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
   }
 }
 
@@ -148,17 +160,18 @@
     border-width: 2px;
     border-color: rgb(156 163 175);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 0.375rem;
   }
 
   .scroll-animation {
     display: block;
     width: 0.25rem;
-    height: 0.375rem;
+    height: 0.5rem;
     background-color: rgb(156 163 175);
     border-radius: 0.375rem;
-    animation: scroll 3s linear infinite;
+    animation: scroll 2s ease-in-out infinite;
   }
 
   .animate-love {
@@ -192,23 +205,41 @@
   .backdrop-blur-sm {
     backdrop-filter: blur(8px);
   }
+
+  .animate-scroll-mouse {
+    animation: scroll-mouse 2s ease-in-out infinite;
+  }
 }
 
 /* Keyframes */
-@keyframes scroll {
-  0% {
-    transform: translateY(1rem);
-    opacity: 0;
-  }
+@keyframes scroll-mouse {
 
-  10% {
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
 
+  50% {
+    transform: translateY(0.5rem);
+    opacity: 0.3;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(0.75rem);
+    opacity: 0.3;
+  }
+
   100% {
     transform: translateY(0);
-    opacity: 0;
+    opacity: 1;
   }
 }
 

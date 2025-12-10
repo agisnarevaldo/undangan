@@ -2,7 +2,7 @@
 
 export default function CommentSection() {
     return (
-        <section className="bg-white dark:bg-gray-900 pb-2" id="comment">
+        <section className="bg-section pb-2" id="comment">
             <div className="mx-auto px-4">
                 <div className="border border-gray-300 dark:border-gray-600 rounded-3xl shadow p-3 bg-white dark:bg-gray-800">
                     <h2 className="font-esthetic text-center py-2 m-0 text-[2.25rem] text-gray-900 dark:text-gray-100">Ucapan &amp; Doa</h2>

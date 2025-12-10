@@ -1,5 +1,7 @@
 'use client'
 
+import SvgDivider from "./SvgDivider"
+
 interface HeroSectionProps {
     countdown: {
         days: number
@@ -13,15 +15,13 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
     const pad = (num: number) => num.toString().padStart(2, '0')
 
     return (
-        <section id="home" className="bg-gray-100 dark:bg-gray-800 relative overflow-hidden p-0 m-0">
-            <div className="absolute inset-0 w-full h-full">
-                <img
-                    src="/images/bg.webp"
-                    alt="bg"
-                    className="w-full h-full object-cover opacity-25 blur-sm"
-                />
-            </div>
-            <div className="relative text-center py-8">
+        <section id="home" className="bg-gray-100 dark:bg-[#212529] relative overflow-hidden p-0 m-0">
+            <img
+                src="/images/bg.webp"
+                alt="bg"
+                className="absolute opacity-25 inset-0 w-full h-full object-cover bg-cover-home"
+            />
+            <div className="relative text-center py-8 z-10 backdrop-blur-[4px]">
                 <h1 className="font-esthetic pt-5 pb-4 font-medium text-[2.25rem]">Undangan Pernikahan</h1>
                 <img
                     src="/images/bg.webp"
@@ -35,12 +35,14 @@ export default function HeroSection({ countdown }: HeroSectionProps) {
                     <i className="fa-solid fa-calendar-check mr-2"></i>Save Google Calendar
                 </button>
                 <div className="flex justify-center items-center mt-4 mb-2">
-                    <div className="mouse-animation border border-gray-400 border-2 rounded-full px-2 py-1 opacity-50">
-                        <div className="scroll-animation rounded bg-gray-400"></div>
+                    <div className="w-5 h-8 border-2 border-gray-600 dark:border-gray-400 rounded-full flex items-start justify-center pt-1.5 opacity-70">
+                        <div className="w-1 h-2 bg-gray-600 dark:bg-gray-400 rounded-full animate-scroll-mouse"></div>
                     </div>
                 </div>
                 <p className="pb-4 m-0 text-gray-500 text-[0.825rem]">Scroll Down</p>
+
             </div>
+
         </section>
     )
 }
