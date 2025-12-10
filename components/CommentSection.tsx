@@ -28,6 +28,7 @@ export default function CommentSection() {
   const [totalCount, setTotalCount] = useState(0); // Total comments in DB
   const [showToast, setShowToast] = useState(false); // Success toast
   const [likingIds, setLikingIds] = useState<Set<string>>(new Set()); // Prevent like spam
+  const [loadingMore, setLoadingMore] = useState(false); // Load more indicator
 
   // Fetch comments on mount
   useEffect(() => {
@@ -38,8 +39,8 @@ export default function CommentSection() {
       const hostname = window.location.hostname;
       const parts = hostname.split(".");
       if (parts.length > 2) {
-        // e.g., irkon.trypss.xyz -> irkon
-        // ignore 'www'
+        // e.g., wedding.trypss.xyz -> wedding
+        // ignore 'www'wedding
         if (parts[0] !== "www") {
           setFormData((prev) => ({ ...prev, group: parts[0] }));
         }
@@ -72,6 +73,9 @@ export default function CommentSection() {
 
           // Add to top of comments list
           setComments((prev) => [commentWithLiked, ...prev]);
+
+          // Increment total count for realtime from other users
+          setTotalCount((prev) => prev + 1);
 
           // Show notification (optional)
           if (typeof window !== "undefined" && "Notification" in window) {
@@ -266,10 +270,12 @@ export default function CommentSection() {
     }
   };
 
-  const loadMore = () => {
+  const loadMore = async () => {
+    setLoadingMore(true);
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchComments(nextPage);
+    await fetchComments(nextPage);
+    setLoadingMore(false);
   };
 
   return (
@@ -404,12 +410,12 @@ export default function CommentSection() {
                   <div className="mt-3 text-center">
                     <button
                       onClick={loadMore}
-                      disabled={loading}
+                      disabled={loadingMore}
                       className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-50"
                     >
-                      {loading ? (
+                      {loadingMore ? (
                         <>
-                          <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                          <i className="fa-solid fa-spinner fa-spin text-sm mr-2"></i>
                           Memuat...
                         </>
                       ) : (
@@ -482,8 +488,33 @@ export default function CommentSection() {
                     const file = e.target.files?.[0];
                     if (!file) return;
 
+                    // Client-side validation
+                    const maxSize = 2 * 1024 * 1024; // 2MB
+                    const validTypes = [
+                      "image/jpeg",
+                      "image/jpg",
+                      "image/png",
+                      "image/webp",
+                      "image/gif",
+                    ];
+
+                    if (file.size > maxSize) {
+                      setErrors(["File terlalu besar! Maksimal 2MB."]);
+                      e.target.value = ""; // Reset input
+                      return;
+                    }
+
+                    if (!validTypes.includes(file.type)) {
+                      setErrors([
+                        "Format file tidak valid! Gunakan JPG, PNG, WebP, atau GIF.",
+                      ]);
+                      e.target.value = ""; // Reset input
+                      return;
+                    }
+
                     try {
                       setUploadingAvatar(true);
+                      setErrors([]); // Clear errors
 
                       // Upload to Supabase Storage
                       const userId = `user-${Date.now()}`;
@@ -512,7 +543,7 @@ export default function CommentSection() {
                   className="block w-9 h-9 rounded-full overflow-hidden cursor-pointer hover:opacity-80 transition-opacity bg-gray-300 dark:bg-gray-700 flex items-center justify-center relative"
                 >
                   {uploadingAvatar ? (
-                    <i className="fa-solid fa-spinner fa-spin text-white text-xs"></i>
+                    <i className="fa-solid fa-spinner fa-spin text-sm"></i>
                   ) : (
                     <>
                       <img
