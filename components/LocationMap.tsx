@@ -8,7 +8,7 @@ export default function LocationMap() {
           Denah Lokasi
         </h2>
 
-        <div className="relative w-full max-w-md mx-auto bg-[#f8f9fa] dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-3xl overflow-hidden p-6 shadow-md">
+        <div className="relative w-full max-w-md mx-auto bg-transparent rounded-3xl overflow-hidden p-6 shadow-none">
           <svg
             viewBox="0 0 400 600"
             className="w-full h-auto"
@@ -41,11 +41,11 @@ export default function LocationMap() {
             <g className="text-[12px] fill-gray-800 dark:fill-gray-200 font-sans font-semibold">
               {/* Top: Pasar Langkap */}
               <text x="200" y="30" textAnchor="middle">
-                Pasar Langkap
+                Pasar Langkap Lancar
               </text>
-              <text x="200" y="45" textAnchor="middle">
+              {/* <text x="200" y="45" textAnchor="middle">
                 Lancar
-              </text>
+              </text> */}
 
               {/* Top Left: Kota Banjar */}
               <text x="80" y="85" textAnchor="middle">
@@ -83,12 +83,7 @@ export default function LocationMap() {
               </text>
 
               {/* Bottom Left: Margasari & LOKASI */}
-              <text
-                x="80"
-                y="540"
-                textAnchor="middle"
-                transform="rotate(35, 80, 540)"
-              >
+              <text x="80" y="540" textAnchor="middle">
                 Margasari
               </text>
 
@@ -97,8 +92,8 @@ export default function LocationMap() {
                 <circle
                   cx="0"
                   cy="0"
-                  r="15"
-                  fill="#ef4444"
+                  r="5"
+                  fill="#e66f6fff"
                   className="animate-bounce"
                 />
                 <path
@@ -107,10 +102,10 @@ export default function LocationMap() {
                   transform="translate(0,2)"
                 />
                 <text
-                  x="0"
-                  y="-20"
+                  x="-1"
+                  y="40"
                   textAnchor="middle"
-                  fill="#ef4444"
+                  fill="#e66f6fff"
                   fontWeight="bold"
                 >
                   LOKASI
@@ -118,7 +113,7 @@ export default function LocationMap() {
               </g>
             </g>
           </svg>
-          <p className="text-center text-xs mt-4 text-gray-500">
+          <p className="text-center text-xs mt-4 text-gray-300">
             *Ikuti petunjuk jalan arah Margasari
           </p>
         </div>
