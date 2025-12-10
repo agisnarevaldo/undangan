@@ -39,13 +39,13 @@ export default function BottomNavbar({ isVisible = true }: BottomNavbarProps) {
           <span className="block text-[0.65rem] leading-tight">Tanggal</span>
         </Link>
 
-        <Link
+        {/* <Link
           className="nav-link flex flex-col items-center gap-1 py-2 px-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors no-underline"
           href="#gallery"
         >
           <i className="fa-solid fa-images text-base"></i>
           <span className="block text-[0.65rem] leading-tight">Galeri</span>
-        </Link>
+        </Link> */}
 
         <Link
           className="nav-link flex flex-col items-center gap-1 py-2 px-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors no-underline"
