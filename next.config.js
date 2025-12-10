@@ -14,8 +14,6 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  // Output as static site
-  output: 'export',
   // Disable trailing slashes
   trailingSlash: false,
   // Configure basePath if needed
