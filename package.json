@@ -1,4 +1,7 @@
 {
+    "name": "undangan",
+    "version": "1.0.0",
+    "private": true,
     "devDependencies": {
         "@eslint/js": "^9.37.0",
         "@types/node": "^24.10.2",
