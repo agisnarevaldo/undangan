@@ -83,23 +83,36 @@ export default function LocationMap() {
               </text>
 
               {/* Bottom Left: Margasari & LOKASI */}
-              <text x="80" y="540" textAnchor="middle">
+              <text x="80" y="530" textAnchor="middle" className="animate-pulse">
                 Margasari
               </text>
 
-              {/* Location Marker */}
+              {/* Location Pin Marker */}
               <g transform="translate(100, 560)">
+                {/* Pulse ring animation */}
                 <circle
                   cx="0"
-                  cy="0"
-                  r="5"
-                  fill="#e66f6fff"
-                  className="animate-bounce"
+                  cy="-5"
+                  r="12"
+                  fill="none"
+                  stroke="#e66f6fff"
+                  strokeWidth="2"
+                  opacity="0.6"
+                  className="animate-ping"
                 />
+                {/* Pin shape */}
                 <path
+                  fill="#e66f6fff"
+                  d="M0,-20 C-6,-20 -10,-16 -10,-10 C-10,-4 0,5 0,5 C0,5 10,-4 10,-10 C10,-16 6,-20 0,-20 Z"
+                  className="animate-pulse"
+                />
+                {/* Pin inner circle */}
+                <circle
+                  cx="0"
+                  cy="-10"
+                  r="3"
                   fill="white"
-                  d="M-5,-5 L5,-5 L0,5 Z"
-                  transform="translate(0,2)"
+                  className="animate-pulse"
                 />
                 <text
                   x="-1"
@@ -107,6 +120,7 @@ export default function LocationMap() {
                   textAnchor="middle"
                   fill="#e66f6fff"
                   fontWeight="bold"
+                  className="animate-pulse"
                 >
                   LOKASI
                 </text>
