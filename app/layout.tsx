@@ -9,41 +9,38 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title:
-    "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+  title: "Undangan Pernikahan - Hari Istimewa Kami",
   description:
-    "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+    "Anda diundang untuk merayakan pernikahan kami. Bergabunglah bersama kami di hari bahagia ini.",
   keywords:
-    "undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan",
-  authors: [{ name: "dewanakl" }],
+    "undangan, wedding, undangan digital, undangan online, wedding invitation, undangan pernikahan online",
+  authors: [{ name: "Wedding Invitation" }],
   robots: "index, follow, max-image-preview:large",
   openGraph: {
-    title:
-      "Website Undangan Pernikahan Tryanda Anggita Suwito dan Putri Suciati Secara Online",
+    title: "Undangan Pernikahan - Bergabunglah di Hari Istimewa Kami",
     description:
-      "Website Undangan Pernikahan Tryanda Anggita Suwito dan Putri Suciati Secara Online",
+      "Anda diundang untuk merayakan pernikahan kami. Simpan tanggalnya dan bergabunglah bersama kami!",
     images: [
       {
-        url: "https://ulems.my.id/images/bg.webp",
-        width: 980,
-        height: 980,
-        alt: "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+        url: "/images/updated/bride.png",
+        width: 1200,
+        height: 630,
+        alt: "Preview Undangan Pernikahan",
       },
     ],
     locale: "id_ID",
     type: "website",
-    url: "https://ulems.my.id",
-    siteName:
-      "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
   },
-  icons: {
-    icon: "/images/icon-192x192.png",
-    apple: "/images/icon-192x192.png",
+  // icons auto-detected from app/icon.png
+  twitter: {
+    card: "summary_large_image",
+    title: "Undangan Pernikahan - Hari Istimewa Kami",
+    description: "Anda diundang untuk merayakan pernikahan kami.",
+    images: ["/images/updated/bride.png"],
   },
   appleWebApp: {
     capable: true,
-    title:
-      "Website Undangan Pernikahan Tryanda Anggita Suwito & Putri Suciati Secara Online",
+    title: "Undangan Pernikahan",
     statusBarStyle: "black-translucent",
   },
 };
